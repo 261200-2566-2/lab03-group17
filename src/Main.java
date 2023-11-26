@@ -87,6 +87,9 @@ public class Main {
 
         System.out.println("==== Character Information ====");
         player.displayInfo();
+        System.out.println("==== Equipment ====");
+        System.out.println("Swords: " + selectedWeapon.name);
+        System.out.println("Shields: " + selectedShield.name);
         System.out.println("===================");
 
     }

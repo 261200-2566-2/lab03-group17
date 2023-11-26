@@ -26,7 +26,6 @@ public class CharacterInfo {
     }
 
     void displayInfo() {
-        System.out.println("Character Information:");
         System.out.println("Name: " + name);
         System.out.println("Gender: " + gender);
         System.out.println("Job: " + job);
