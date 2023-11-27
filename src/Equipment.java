@@ -31,11 +31,5 @@ public class Equipment {
     //     }
     // }
 
-    void displayEquipmentInfo(Object[] equipment, String category) {
-        System.out.println(category + ":");
-        for (int i = 0; i < equipment.length; i++) {
-            System.out.println((i + 1) + ". " + equipment[i].toString());
-        }
-        System.out.print("Choose " + category + " (1-" + equipment.length + "): ");
-    }
+ 
 }
