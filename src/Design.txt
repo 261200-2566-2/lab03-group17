@@ -22,37 +22,20 @@ method
 
 
 ================================
-            Action
-================================
-inheritance
--
--
--
--
--
-
-method
--
--
--
--
--
-
-
-
-================================
             Weapon
 ================================
 inheritance
--
--
--
--
--
+- name
+- type
+- level
+- reducesDamage
+- damage
+-  weight
 
 method
--
--
--
--
--
+- getName
+- getType
+- getWeight
+- getDamage
+- getReduceDamage
+- getWeaponInfo 

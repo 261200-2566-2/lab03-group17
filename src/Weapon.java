@@ -37,7 +37,7 @@ public class Weapon {
     }
 
 
-    public void getWeaponInfo() {
+    public void getWeaponInfo(){
         if("sword".equals(type)){
             System.out.println("Name: " + name + "\tLevel: " + level + "\tDamage: " 
             + damage + "\tWeight: " + weight);

@@ -29,11 +29,11 @@ public class Character {
     }
 
     void levelUp() {
-        if (level <= 99) { //เลเวลเต็มที่ 99 
-            level++;
-            hp += 5;
-            mana += 5;
-            damage += 5;
+        if(level <= 99){
+            hp = 40 + 5*level;
+            mana = 20 + 5*level;
+            damage = 1 + 5*level;
+            runSpeed = 34 + 2*level;
         }
 
     }
