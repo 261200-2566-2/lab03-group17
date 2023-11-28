@@ -1,10 +1,10 @@
 public class Weapon {
-    String name;
-    String type;
-    int level;
-    int reducesDamage;
-    int damage;
-    int weight;
+    private String name;
+    private String type;
+    private int level;
+    private int reducesDamage;
+    private int damage;
+    private int weight;
 
     public Weapon(String type, String name, int level, int dmgOrRdmg, int weight) {
         this.name = name;
@@ -17,6 +17,7 @@ public class Weapon {
         }
         this.weight = weight;
     }
+
 
     public void getWeaponInfo() {
         if("sword".equals(type)){

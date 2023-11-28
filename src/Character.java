@@ -5,7 +5,9 @@ public class Character {
     private int level;
     private int hp;
     private int mana;
+    private int weight;
     private int runSpeed;
+    private int attack;
 
     public Character(String name, String gender, String job ) {
         this.name = name;
@@ -21,6 +23,8 @@ public class Character {
         this.hp = 40;
         this.mana = 20;
         this.runSpeed = 34;
+        this.attack = 1;
+        this.weight = 60;
     }
 
     void levelUp() {
@@ -28,11 +32,19 @@ public class Character {
             level++;
             hp += 5;
             mana += 5;
+            attack += 5;
         }
     }
 
-    void attack(Character player1,Character player2){
-
+    public void runSpeed(){
+        int totalWeight = weapon.weight + weight;
+        if (totalWeight > 150 && totalWeight <= 200) {
+            runSpeed *= 0.75; // วิ่งช้าลง 25%
+        } else if (totalWeight > 200 && totalWeight <= 250) {
+            runSpeed *= 0.7; // วิ่งช้าลง 30%
+        } else if (totalWeight > 250) {
+            runSpeed *= 0.5; // วิ่งช้าลง 50%
+        }
     }
 
 
@@ -44,6 +56,7 @@ public class Character {
         System.out.println("HP: " + hp);
         System.out.println("Mana: " + mana);
         System.out.println("Run Speed: " + runSpeed);
+        System.out.println("Attack: " + attack);
     }
 
 }
