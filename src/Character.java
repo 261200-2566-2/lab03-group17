@@ -7,6 +7,7 @@ public class Character {
     private int mana;
     private int runSpeed;
     private int damage; // damage of character when don't have weapon
+    private int shield; // damage of character when don't have weapon
     private Weapon[] weapon = new Weapon[2];
     
     public Character(String name, String gender) {
@@ -24,6 +25,7 @@ public class Character {
         this.mana = 20;
         this.runSpeed = 34;
         this.damage = 1;
+        this.shield = 0;
     }
 
     // max on lv.99
@@ -41,6 +43,17 @@ public class Character {
 
     }
 
+    public void setDamage(){
+        if(weapon[1] != null){
+            damage += weapon[1].getDamage();
+        }
+    }
+    public void setShield(){
+        if(weapon[0] != null){
+            shield += weapon[0].getReduceDamage();
+        }
+    }
+
     public void setRunSpeed(){
         int totalWeight = weapon[0].getWeight() + weapon[1].getWeight();
         if (totalWeight > 150 && totalWeight <= 200) {
@@ -56,15 +69,19 @@ public class Character {
         if(weapon1.getType().equals("shield")){
             weapon[0] = weapon1;
             setRunSpeed();
+            setShield();
         }else if(weapon1.getType().equals("sword")){
             weapon[1] = weapon1;
             setRunSpeed();
+            setDamage();
         }
     }
     public void equipWeapon(Weapon weapon1,Weapon weapon2){
         weapon[0] = weapon1;
         weapon[1] = weapon2;
         setRunSpeed();
+        setDamage();
+        setShield();
     }
     
 
@@ -76,7 +93,8 @@ public class Character {
         System.out.println("HP: " + hp);
         System.out.println("Mana: " + mana);
         System.out.println("Run Speed: " + runSpeed);
-        System.out.println("Attack: " + damage);
+        System.out.println("Damage: " + damage);
+        System.out.println("Shield: " + shield);
         for (Weapon w : weapon) {
             if (w != null) {
                 System.out.println(w.getType() + ": " + w.getName());

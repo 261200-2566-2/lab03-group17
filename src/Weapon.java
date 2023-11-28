@@ -3,7 +3,7 @@ public class Weapon {
     private String type;
     private int level;
     private double reducesDamage;
-    private double damage;
+    private int damage;
     private int weight;
 
     public Weapon(String type, String name, int level, int dmgOrRdmg, int weight) {
@@ -11,9 +11,9 @@ public class Weapon {
         this.level = level;
         this.type = type.toLowerCase();
         if(this.type.equals("sword")){
-            this.damage = dmgOrRdmg * (1 + 0.1*level);
-        }else if(this.type.equals(type)){
-            this.reducesDamage = dmgOrRdmg * (1 + 0.05*level);
+            this.damage = dmgOrRdmg * (2 + level);
+        }else if(this.type.equals("shield")){
+            this.reducesDamage = dmgOrRdmg + (2 * level);
         }
         this.weight = weight;
     }
@@ -29,7 +29,7 @@ public class Weapon {
     public int getWeight(){
         return weight; 
     }
-    public double getDamage(){
+    public int getDamage(){
         return damage; 
     }
     public double getReduceDamage(){
