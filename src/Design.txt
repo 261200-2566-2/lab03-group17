@@ -1,16 +1,58 @@
+Lab 3 oop - java
+---------------------------------------------------
+RPG characters
+-an RPG character has a level, which determines maximum HP and mana (level can be upped)
+-a character could be attacked by a sword, but can lessen damage with a shield
+-a character might have a sword equipped, or not, and might have a shield equipped, or not (equipping any of these will reduce character's run speed)
+
+equipment (swords and shields)
+-an equipment has an effect on character's run speed
+-a sword has a level that increases damage dealt to a character and affects character's run speed (level can be upped)
+-a shield has a level that decreases damage received by a character and affects character's run speed (level can be upped)
+---------------------------------------------------
+ทั้งหมดอ้างอิ้งจาก Ragnarok (IRO)
+https://irowiki.org/wiki/Novice
+
+(ฉบับแปลภาษา)
+ตัวละครสวมบทบาท
+- ตัวละคร RPG มีระดับซึ่งกำหนด HP และมานาสูงสุด (สามารถเพิ่มระดับได้)
+- ตัวละครอาจถูกโจมตีด้วยดาบ แต่สามารถลดความเสียหายได้ด้วยโล่
+- ตัวละครอาจมีดาบติดตั้งอยู่หรือไม่ก็ได้ และอาจมีโล่หรือไม่มีก็ได้ (การสวมใส่สิ่งใดสิ่งหนึ่งเหล่านี้จะลดความเร็วในการวิ่งของตัวละคร)
+
+อุปกรณ์ (ดาบและโล่)
+- อุปกรณ์มีผลต่อความเร็วในการวิ่งของตัวละคร
+- ดาบมีระดับที่เพิ่มความเสียหายที่ทำกับตัวละครและส่งผลต่อความเร็วในการวิ่งของตัวละคร (สามารถเพิ่มระดับได้)
+- โล่มีระดับที่ลดความเสียหายที่ได้รับจากตัวละครและส่งผลต่อความเร็วในการวิ่งของตัวละคร (สามารถเพิ่มระดับได้)
+
+สร้างเป็นไฟล์classแยก แล้วค่อยมาเรียกในไฟล์Main
+ในส่วนของอาชีพ ให้สร้างแค่อาชีพ Novice ซึ่งเป็นอาชีพเริ่มต้นของผู้เล่นอยู่แล้ว
+
+โดยตารางการเพิ่ม Lv ของตัวละอาชีพ Novice จะเป็นดังนี้
+
+Level	HP	MANA
+1	    40	20
+2	    45	25
+3	    50	30
+4	    55	35
+5	    60	40
+        .
+        .
+        .
+
+โดยมีข้อมูลตามนี้
 ================================
             Character
 ================================
-inheritance
-- name
-- gender
-- job
-- level
-- hp
-- mana
-- weight
-- runSpeed
-- damage
+variable
+- name = ชื่อตัวละคร
+- gender = เพศตัวละคร
+- job = อาชีพของตัวละคร (default = Novice)
+- level = ค่าเริ่มต้นที่ 1 และจะเพิ่มขึ้นทีละ 1
+- hp = ค่าเริ่มต้นที่ 40 และจะเพิ่มขึ้นทีละ 5
+- mana = ค่าเริ่มต้นที่ 20 และจะเพิ่มขึ้นทีละ 5
+- runSpeed = ขึ้นอยู่กับอุกรณ์สวมใส่และเลเวลของตัวละคร โดยค่าเริ่มต้นที่ 34 และจะเพิ่มขึ้นทีละ 2
+- damage = ค่าเริ่มต้นที่ 1 และจะเพิ่มขึ้นทีละ 5 
+- weapon = เก็บอุปกรณ์ที่สวมใส่ มากสุดได้ 2 ชิ้นคือดาบกับโล่ โดยชิ้นแรก(weapon[0])คือโล่ ชิ้นที่สอง(weapon[1])คือดาบ (ตามลำดับซ้ายขวา)
 
 method
 - levelUp
@@ -18,6 +60,67 @@ method
 - getRunSpeed
 - equipWeapon
 - displayInfo
+
+
+จากนั้นจะมีคลาสของweapon
+โดยจะมีแบ่งย่อยไปอีก เช่น ดาบ หอก ธนู มีด กาต้า คทา ขวาน โล่ เป็นต้น
+อ้างอิงตามนี้
+-Weapons
+	มี
+	Name		Level	Attack	Weight		
+	Blade		1	23	50		
+ 	Falchion	2	39	60		
+ 	Sword		3	75	80
+	Byeollungum	4	150	90	
+		
+
+-Shields
+	มี
+	Name				Level	Reduces_damage	Weight
+	Advanced Angelic Guard		1	20		70
+	Angelic Guard			2	30		90
+	Thorny Buckler			3	50		100
+	OOP Guard			4	100		200
+
+ส่วนประกอบของclassมีดังนี้
+================================
+            Weapon
+================================
+inheritance
+- name
+- type
+- level
+- reducesDamage
+- damage
+-  weight
+
+method
+- getName
+- getType
+- getWeight
+- getDamage
+- getReduceDamage
+- getWeaponInfo 
+
+
+ฟังก์ชั่นการส่วมใส่อุปกรณ์
+โดยตัวละครจะสามารถสวมใส่อุปกรณ์ได้ทั้งหมด 2 ส่วนคือ
+ส่วนมือขวา - อาวุธ เช่น ดาบ มีด คทา 
+ส่วนมือซ้าย - โล่ 
+อย่างไรก็ตามพวกของสวมใส่จะมีค่าน้ำหนักอยู่ โดยตัวละครจะแบกน้ำหนักได้แค่ 300 ถ้าหากน้ำหนักที่รวมของส่วมใส่และไอเทมในกระเป๋า
+เกิน150จะทำให้ วิ่งช้าลง 25% แล้วถ้าเกิน 200จะทำให้วิ่งช้าลง 30% และถ้าหากน้ำหนักเกิน 250 จะทำให้วิ่งช้าลง 50%
+
+เขียนคลาสของทั้งหมดที่สั่ง การแสดงผลจะแสดงผลเป็นข้อความผ่านเทอมินินอล
+โดยจะเริ่มที่สร้างตัวละคร
+ถามชื่อ-ให้กรอกเอง
+เพศ-ให้เลือกแบบตัวเลือก 1.คือชาย 2.คือหญิง
+อาชีพ บังคับ  Novice - โดยแสดงข้อความกำกับว่ายังไม่ถึงเวลาเลือกคลาส
+(Weapons) เลือกอาวุธเริ่มต้น - เลือกแบบตัวเลือกเช่นกัน
+โดยจะแสดงข้อมูล เลเวล น้ำหนักตามคลาส อาวุธที่มีให้เลือก
+(Shields) เลือกโล่เริ่มต้น - เลือกแบบตัวเลือกเช่นกัน
+โดยจะแสดงข้อมูล เลเวล น้ำหนักตามคลาส โล่ที่มีให้เลือก
+
+สุดท้ายก็แสดงผลลัพทั้งหมด
 
 
 
