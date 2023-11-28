@@ -4,8 +4,8 @@ public class Main {
     // example
     Character player = new Character("KOKO", "Male");
     //player.displayInfo();
-    Weapon fuckSword = new Weapon("Sword","fuckSword",1, 60, 5);
-    Weapon fuckShield = new Weapon("Shield","fuckShield",1, 60, 5);
+    Weapon fuckSword = new Weapon("Sword","fuckSword",1, 60, 100);
+    Weapon fuckShield = new Weapon("Shield","fuckShield",1, 60, 150);
     //fuckSword.getWeaponInfo();
     //player.displayEquipmentInfo(args, null);
 

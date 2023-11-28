@@ -51,10 +51,6 @@ public class Character {
             runSpeed *= 0.5; // วิ่งช้าลง 50%
         }
     }
-
-    public int getRunSpeed(){
-        return runSpeed;
-    }
     
     public void equipWeapon(Weapon weapon1){
         if(weapon1.getType().equals("shield")){
@@ -71,9 +67,6 @@ public class Character {
         setRunSpeed();
     }
     
-    public Weapon[] getWeapon(){
-        return weapon;
-    }
 
     void displayInfo() {
         System.out.println("Name: " + name);
