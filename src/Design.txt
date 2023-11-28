@@ -1,0 +1,58 @@
+================================
+            Character
+================================
+inheritance
+- name
+- gender
+- job
+- level
+- hp
+- mana
+- weight
+- runSpeed
+- damage
+
+method
+- levelUp
+- setRunSpeed
+- getRunSpeed
+- equipWeapon
+- displayInfo
+
+
+
+================================
+            Action
+================================
+inheritance
+-
+-
+-
+-
+-
+
+method
+-
+-
+-
+-
+-
+
+
+
+================================
+            Weapon
+================================
+inheritance
+-
+-
+-
+-
+-
+
+method
+-
+-
+-
+-
+-

@@ -18,6 +18,14 @@ public class Weapon {
         this.weight = weight;
     }
 
+    public String getName(){
+        return name;
+    }
+
+    public String  getType(){
+        return type;
+    }
+
     public int getWeight(){
         return weight; 
     }

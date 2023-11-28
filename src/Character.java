@@ -8,8 +8,8 @@ public class Character {
     private int weight;
     private int runSpeed;
     private int damage;
-    private Weapon weapon; // สร้างเป็นตัวแปรที่เก็บอาวุธ๙โล่ได้มากสุด2 ชิ้น มือซ้ายขวา
-
+    private Weapon[] weapon = new Weapon[2];
+    
     public Character(String name, String gender, String job ) {
         this.name = name;
         if(gender == "Male" || gender == "male"){
@@ -38,7 +38,7 @@ public class Character {
     }
 
     public void setRunSpeed(){
-        int totalWeight = weapon.getWeight() + weight;
+        int totalWeight = weapon[0].getWeight() + weight;
         if (totalWeight > 150 && totalWeight <= 200) {
             runSpeed *= 0.75; // วิ่งช้าลง 25%
         } else if (totalWeight > 200 && totalWeight <= 250) {
@@ -51,10 +51,22 @@ public class Character {
     public int getRunSpeed(){
         return runSpeed;
     }
-    public Weapon getWeapon(){
-        return weapon; 
+    
+    public void equipWeapon(Weapon weapon1){
+        if(weapon1.getType().equals("sword")){
+            weapon[0] = weapon1;
+        }else if(weapon1.getType().equals("shield")){
+            weapon[1] = weapon1;
+        }
     }
-
+    public void equipWeapon(Weapon weapon1,Weapon weapon2){
+        weapon[0] = weapon1;
+        weapon[1] = weapon2;
+    }
+    
+    public Weapon[] getWeapon(){
+        return weapon;
+    }
 
     void displayInfo() {
         System.out.println("Name: " + name);
@@ -65,6 +77,11 @@ public class Character {
         System.out.println("Mana: " + mana);
         System.out.println("Run Speed: " + runSpeed);
         System.out.println("Attack: " + damage);
+        for (Weapon w : weapon) {
+            if (w != null) {
+                System.out.println("Weapon: " + w.getName());
+            }
+        }
     }
 
 }

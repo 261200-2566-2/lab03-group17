@@ -3,10 +3,14 @@ public class Main {
         
     // example
     Character player = new Character("KOKO", "Male","Berserk");
-    player.displayInfo();
+    //player.displayInfo();
     Weapon fuckSword = new Weapon("sword","fuckSword", 1, 60, 5);
-    fuckSword.getWeaponInfo();
+    Weapon fuckShield = new Weapon("sword","fuckShield", 1, 60, 5);
+    //fuckSword.getWeaponInfo();
     //player.displayEquipmentInfo(args, null);
+
+    player.equipWeapon(fuckSword,fuckShield);
+    player.displayInfo();
     }
 
 
