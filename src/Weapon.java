@@ -18,6 +18,16 @@ public class Weapon {
         this.weight = weight;
     }
 
+    public int getWeight(){
+        return weight; 
+    }
+    public int getDamage(){
+        return damage; 
+    }
+    public int getReduceDamage(){
+        return reducesDamage; 
+    }
+
 
     public void getWeaponInfo() {
         if("sword".equals(type)){

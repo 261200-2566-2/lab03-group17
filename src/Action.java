@@ -6,22 +6,14 @@ public class Action {
         this.character = character;
     }
 
-    public String attackEnemy() {
-
+    public void attack() {
+        if(character.getWeapon() != null){
+            weapon.getDamage();
+        }
     }
 
-    public String defend() {
-
+    public void defend() {
+        weapon.getReduceDamage();
     }
-
-    public void equipWeapon(Weapon weapon){
-
-    }
-
-
-    public void equipWeapon(Weapon weapon1 , Weapon weapon2){
-        
-    }
-
  
 }

@@ -7,7 +7,8 @@ public class Character {
     private int mana;
     private int weight;
     private int runSpeed;
-    private int attack;
+    private int damage;
+    private Weapon weapon; // สร้างเป็นตัวแปรที่เก็บอาวุธ๙โล่ได้มากสุด2 ชิ้น มือซ้ายขวา
 
     public Character(String name, String gender, String job ) {
         this.name = name;
@@ -23,7 +24,7 @@ public class Character {
         this.hp = 40;
         this.mana = 20;
         this.runSpeed = 34;
-        this.attack = 1;
+        this.damage = 1;
         this.weight = 60;
     }
 
@@ -32,12 +33,12 @@ public class Character {
             level++;
             hp += 5;
             mana += 5;
-            attack += 5;
+            damage += 5;
         }
     }
 
-    public void runSpeed(){
-        int totalWeight = weapon.weight + weight;
+    public void setRunSpeed(){
+        int totalWeight = weapon.getWeight() + weight;
         if (totalWeight > 150 && totalWeight <= 200) {
             runSpeed *= 0.75; // วิ่งช้าลง 25%
         } else if (totalWeight > 200 && totalWeight <= 250) {
@@ -45,6 +46,13 @@ public class Character {
         } else if (totalWeight > 250) {
             runSpeed *= 0.5; // วิ่งช้าลง 50%
         }
+    }
+
+    public int getRunSpeed(){
+        return runSpeed;
+    }
+    public Weapon getWeapon(){
+        return weapon; 
     }
 
 
@@ -56,7 +64,7 @@ public class Character {
         System.out.println("HP: " + hp);
         System.out.println("Mana: " + mana);
         System.out.println("Run Speed: " + runSpeed);
-        System.out.println("Attack: " + attack);
+        System.out.println("Attack: " + damage);
     }
 
 }
