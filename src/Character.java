@@ -6,8 +6,8 @@ public class Character {
     private int hp;
     private int mana;
     private int runSpeed;
-    private int damage; // damage of character when don't have weapon
-    private int shield; // damage of character when don't have weapon
+    private int damage; 
+    private int shield; 
     private Weapon[] weapon = new Weapon[2];
     
     public Character(String name, String gender) {
@@ -75,18 +75,19 @@ public class Character {
     }
     
     
-    public void equipWeapon(Weapon weapon1){
-        if(weapon1.getType().equals("shield")){
+    public void equipWeapon(Weapon weapon1) {
+        if (weapon1.getType().equals("shield")) {
             weapon[0] = weapon1;
             setRunSpeed();
             setShield();
-        }else if(weapon1.getType().equals("sword")){
+        } else if (weapon1.getType().equals("sword")) {
             weapon[1] = weapon1;
             setRunSpeed();
             setDamage();
         }
     }
-    public void equipWeapon(Weapon weapon1,Weapon weapon2){
+
+    public void equipWeapon(Weapon weapon1, Weapon weapon2) {
         weapon[0] = weapon1;
         weapon[1] = weapon2;
         setRunSpeed();
@@ -106,12 +107,16 @@ public class Character {
         System.out.println("Run Speed: " + runSpeed);
         System.out.println("Damage: " + damage);
         System.out.println("Shield: " + shield);
+    
         for (Weapon w : weapon) {
             if (w != null) {
-                System.out.println(w.getType() + ": " + w.getName());
+                w.getWeaponInfo();  
+            } else {
+                System.out.println("No equipped.");
             }
         }
         System.out.println("======================");
     }
-
+    
+    
 }
