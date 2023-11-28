@@ -1,17 +1,69 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.print("Hello and welcome!");
+        Scanner scanner = new Scanner(System.in);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        System.out.print("Enter character name: ");
+        String name = scanner.nextLine();
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        System.out.print("Choose gender (1. Male, 2. Female): ");
+        int genderChoice = scanner.nextInt();
+        String gender;
+        if (genderChoice == 1) {
+            gender = "Male";
+        } else if (genderChoice == 2) {
+            gender = "Female";
+        } else {
+            System.out.println("Incorrect choice. Defaulting to Male.");
+            gender = "Male";
         }
+
+        Character player = new Character(name, gender);
+
+        player.displayInfo();
+
+        System.out.println("\nChoose a starting weapon:");
+        Weapon startingSword = new Weapon("Sword", "Starting Sword", 1, 10, 20);
+        Weapon startingAxe = new Weapon("Axe", "Starting Axe", 1, 15, 25);
+        System.out.println("1. " + startingSword.getName());
+        System.out.println("2. " + startingAxe.getName());
+        System.out.println("3. Do not equip any weapon");
+        System.out.print("Enter weapon choice (1, 2, or 3): ");
+        int weaponChoice = scanner.nextInt();
+
+        if (weaponChoice == 1) {
+            player.equipWeapon(startingSword);
+        } else if (weaponChoice == 2) {
+            player.equipWeapon(startingAxe);
+        } else if (weaponChoice == 3) {
+
+        } else {
+            System.out.println("Incorrect choice. Defaulting to Starting Sword.");
+            player.equipWeapon(startingSword);
+        }
+
+        System.out.println("\nChoose a starting shield:");
+        Weapon woodenShield = new Weapon("Shield", "Wooden Shield", 1, 5, 15);
+        Weapon ironShield = new Weapon("Shield", "Iron Shield", 1, 10, 20);
+        System.out.println("1. " + woodenShield.getName());
+        System.out.println("2. " + ironShield.getName());
+        System.out.println("3. Do not equip any shield"); 
+        System.out.print("Enter shield choice (1, 2, or 3): ");
+        int shieldChoice = scanner.nextInt();
+
+        if (shieldChoice == 1) {
+            player.equipWeapon(woodenShield);
+        } else if (shieldChoice == 2) {
+            player.equipWeapon(ironShield);
+        } else if (shieldChoice == 3) {
+
+        } else {
+            System.out.println("Incorrect choice. Defaulting to Wooden Shield.");
+            player.equipWeapon(woodenShield);
+        }
+
+        System.out.println(" ");
+        player.displayInfo();
+        scanner.close();
     }
 }
