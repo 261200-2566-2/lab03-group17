@@ -35,6 +35,7 @@ public class Character {
             mana += 5;
             damage += 5;
         }
+
     }
 
     public void setRunSpeed(){
@@ -79,7 +80,7 @@ public class Character {
         System.out.println("Attack: " + damage);
         for (Weapon w : weapon) {
             if (w != null) {
-                System.out.println("Weapon: " + w.getName());
+                System.out.println(w.getType() + ": " + w.getName());
             }
         }
     }
