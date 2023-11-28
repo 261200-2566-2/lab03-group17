@@ -59,13 +59,16 @@ public class Character {
     public void equipWeapon(Weapon weapon1){
         if(weapon1.getType().equals("shield")){
             weapon[0] = weapon1;
+            setRunSpeed();
         }else if(weapon1.getType().equals("sword")){
             weapon[1] = weapon1;
+            setRunSpeed();
         }
     }
     public void equipWeapon(Weapon weapon1,Weapon weapon2){
         weapon[0] = weapon1;
         weapon[1] = weapon2;
+        setRunSpeed();
     }
     
     public Weapon[] getWeapon(){
